@@ -1,5 +1,7 @@
 language: php
 
+dist: trusty
+
 php:
   - 5.5
   - 5.6
@@ -19,6 +21,7 @@ matrix:
 install:
   - travis_retry composer self-update && composer --version
   - travis_retry composer update --no-interaction $dependencies
+  - composer require symfony/event-dispatcher:^2.8
 
 before_script:
   - mkdir -p src-tests/logs/
